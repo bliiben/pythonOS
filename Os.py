@@ -3,7 +3,7 @@ import CPU
 from collections import deque
 import threading 
 
-class OS(threading.Thread):
+class Os(threading.Thread):
 	"""docstring for OS"""
 	def __init__(self):
 		threading.Thread.__init__(self)
@@ -44,7 +44,8 @@ class OS(threading.Thread):
 				self.isUpdates.clear()
 				print ("Waiting for new programs to process...")
 
-os=OS()
-os.start()
-os.addProgram("r0:1,r2:4+r0,r1:r2-r0",{"running":False})
-os.addProgram("r0:1,r0:r0+r0,r0:r0+r0,r0:r0+r0,r0:r0+r0",{"running":False})
+if __name__ == '__main__':
+	os=Os()
+	os.start()
+	os.addProgram("r0:1,r2:4+r0,r1:r2-r0",{"running":False})
+	os.addProgram("r0:1,r0:r0+r0,r0:r0+r0,r0:r0+r0,r0:r0+r0",{"running":False})

@@ -1,6 +1,6 @@
 import OSException
 		
-def execute(program, memory=[0 for i in xrange(10)], state=0,numberOfOperation=1):
+def execute(program, memory, state=0,numberOfOperation=1):
 	print (program,state,memory)
 	maxOp = state + numberOfOperation
 	while state < len(program) and state < maxOp:
@@ -48,7 +48,8 @@ def getRegOrC(string):
 		int(string[1] if string[0] == 'r' else string) )
 
 def startProgram(programString,numberOfOperation=1):
-	return execute(programString.split(','),numberOfOperation=numberOfOperation)
+	memory=[0 for i in xrange(10)]
+	return execute(programString.split(','),memory,numberOfOperation=numberOfOperation)
 
 def main():
 	startProgram("r0:1,r2:4+r0,r1:r2-r0",1)
